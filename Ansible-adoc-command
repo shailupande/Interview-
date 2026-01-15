@@ -1,0 +1,7 @@
+Adhoc cmds -
+
+1. ansible all -m copy -a "src=/etc/ansible/hosts dest=/var"
+
+2. ansible all -m shell -a "ls -lrt /"
+
+3. ansible all -m yum -a "name=git state=latest" --become
