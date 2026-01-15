@@ -1,0 +1,34 @@
+vim nginx-deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest  # change this if using Docker Hub (e.g. username/my-nginx)
+        ports:
+        - containerPort: 80
+
+
+
+# kubectl apply -f nginx-deployment.yaml
+
+# kubectl get deployment
+
+# kubectl get pods
+
+# kubectl exec -it nginx-deployment-96b9d695-7cs6h -- /bin/bash  (where nginx-deployment-96b9d695-7vblk is your pod #kubectl get pods)
+
